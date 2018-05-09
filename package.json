@@ -1,0 +1,27 @@
+{
+  "name": "webpack_practice",
+  "version": "1.0.0",
+  "description": "此仓库是webpack4.0的自我学习实践 ## 目的 实践webpack，尝试用webpack4.0构建一套适用于自己的环境。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koory1st/webpack_practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koory1st/webpack_practice/issues"
+  },
+  "homepage": "https://github.com/koory1st/webpack_practice#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "babel-loader": "^8.0.0-beta.0",
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3"
+  }
+}
