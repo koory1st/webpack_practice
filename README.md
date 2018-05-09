@@ -9,3 +9,4 @@ npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env --save-dev
 npm install webpack webpack-cli --save-dev
 npm install --save-dev style-loader css-loader
 npm install --save-dev html-webpack-plugin
+npm install clean-webpack-plugin --save-dev
