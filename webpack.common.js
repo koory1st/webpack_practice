@@ -1,10 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: './src/js/index.js',
     plugins: [
+        new ExtractTextPlugin("[name].[hash].css"),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'Output Management',
@@ -28,16 +30,18 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1
-                        }
-                    },
-                    'postcss-loader'
-                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1
+                            }
+                        },
+                        'postcss-loader'
+                    ]
+                  })
             }
         ]
     }

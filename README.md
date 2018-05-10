@@ -10,13 +10,14 @@
 * hash文件名防缓存
 * css自动加浏览器前缀
 
-##命令
-npm init -y
-npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env --save-dev
-npm install webpack webpack-cli --save-dev
-npm install --save-dev style-loader css-loader
-npm install --save-dev html-webpack-plugin
-npm install clean-webpack-plugin --save-dev
-npm install --save-dev webpack-merge
-npm install --save-dev webpack-dev-server
-npm install --save-dev postcss-loader
+## 命令
+* npm init -y
+* npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env --save-dev
+* npm install webpack webpack-cli --save-dev
+* npm install --save-dev style-loader css-loader
+* npm install --save-dev html-webpack-plugin
+* npm install clean-webpack-plugin --save-dev
+* npm install --save-dev webpack-merge
+* npm install --save-dev webpack-dev-server
+* npm install --save-dev postcss-loader
+* npm install --save-dev extract-text-webpack-plugin@next (目前没有webpack4.0的正式版本，使用beta版)
