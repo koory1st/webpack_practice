@@ -3,6 +3,13 @@
 ## 目的
 实践webpack，尝试用webpack4.0构建一套适用于自己的环境。
 
+## 功能
+* 开发和生产环境区分（npm run start）（npm run build）
+* 使用html模板
+* 清理dist文件夹
+* hash文件名防缓存
+* css自动加浏览器前缀
+
 ##命令
 npm init -y
 npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env --save-dev
