@@ -9,6 +9,10 @@ div {
     background-color: blue;
 }
 
+.pa {
+    width: 10px;
+}
+
 ::placeholder {
     color: gray;
 }
