@@ -4,8 +4,9 @@
   "description": "此仓库是webpack4.0的自我学习实践 ## 目的 实践webpack，尝试用webpack4.0构建一套适用于自己的环境。",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --open 'Google Chrome' --config webpack.dev.js",
-    "build": "NODE_ENV=production webpack --config webpack.prod.js",
+    "dev": "NODE_ENV=development webpack --profile --progress --colors --open 'Google Chrome' --config webpack.dev.js",
+    "hrm": "NODE_ENV=development webpack-dev-server --profile --progress --colors --open 'Google Chrome' --config webpack.dev.js",
+    "build": "NODE_ENV=production webpack --profile --progress --colors --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

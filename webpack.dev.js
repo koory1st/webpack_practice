@@ -1,9 +1,6 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
-const glob = require('glob');
-const PurifyCSSPlugin = require('purifycss-webpack');
-const path = require('path');
 
 module.exports = merge(common, {
     mode: "development",
@@ -13,11 +10,24 @@ module.exports = merge(common, {
         hot: true
     },
     plugins:[
-        new PurifyCSSPlugin({
-            // Give paths to parse for rules. These should be absolute!
-            paths: glob.sync(path.join(__dirname, 'src/template/*.html'))
-        }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader'
+                ]
+            }
+        ]
+    }
 });
