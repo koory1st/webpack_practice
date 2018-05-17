@@ -1,8 +1,15 @@
+const _ = require('lodash');
+const Log = require('log');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const glob = require('glob');
-const PurifyCSSPlugin = require('purifycss-webpack');
+
+let entry = {
+    default: './src/js/index.js',
+    test: './src/js/test.js'
+};
+
+let log = new Log('info');
 
 module.exports = {
     entry: './src/js/index.js',
@@ -11,11 +18,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Output Management',
             template: './src/template/index.html'
-        }),
-        new PurifyCSSPlugin({
-            // Give paths to parse for rules. These should be absolute!
-            paths: glob.sync(path.join(__dirname, 'src/template/*.html')),
-            minimize: true
         })
     ],
     output: {
@@ -24,15 +26,14 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
                 }
             }
-        ]
+        }]
     }
 };

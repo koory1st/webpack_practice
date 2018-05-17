@@ -1,5 +1,4 @@
 const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const glob = require('glob');
@@ -11,7 +10,6 @@ module.exports = merge(common, {
     plugins:[
         new ExtractTextPlugin("[name].[hash].css"),
         new PurifyCSSPlugin({
-            // Give paths to parse for rules. These should be absolute!
             paths: glob.sync(path.join(__dirname, 'src/template/*.html')),
             minimize: true
         })
