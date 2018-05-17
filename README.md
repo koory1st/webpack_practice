@@ -23,3 +23,5 @@
 * npm install --save-dev postcss-loader
 * npm install --save-dev extract-text-webpack-plugin@next (目前没有webpack4.0的正式版本，使用beta版)
 * npm i -D purifycss-webpack purify-css
+* npm install eslint --save-dev
+* ./node_modules/.bin/eslint --init
