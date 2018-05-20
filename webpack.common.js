@@ -10,7 +10,7 @@ const entryPrefixName = 'js/business/';
 let entry = entryPrefixPath + 'index.js';
 if (businessConfig.pageList.length) {
     entry = {};
-    businessConfig.pageList.forEach((page)=>{
+    businessConfig.pageList.forEach((page) => {
         entry[entryPrefixName + page] = path.resolve(__dirname, entryPrefixPath + page);
     });
 }
@@ -33,7 +33,7 @@ module.exports = {
         splitChunks: {
             cacheGroups: {
                 commons: {
-                    test : /\.js$/,
+                    test: /\.js$/,
                     name: './js/commons',
                     chunks: 'all'
                 },
@@ -46,18 +46,28 @@ module.exports = {
     },
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                exclude: /node_modules/,
+                include: path.resolve(__dirname, 'src/js'),
+                loader: 'eslint-loader',
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                include: path.resolve(__dirname, 'src/js'),
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
                 }
-            }
-        }]
+            }]
     }
 };

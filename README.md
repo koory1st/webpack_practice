@@ -25,3 +25,4 @@
 * npm i -D purifycss-webpack purify-css
 * npm install eslint --save-dev
 * ./node_modules/.bin/eslint --init
+* npm install eslint-loader --save-dev
