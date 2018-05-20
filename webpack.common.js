@@ -3,21 +3,25 @@ const Log = require('log');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BusinessConfig = require('./src/js/business.config');
+const businessConfig = require('./src/js/business.config');
 
-let entry = {
-    default: './src/js/index.js',
-    test: './src/js/test.js'
-};
+const entryPrefixPath = './src/js/';
+const entryPrefixName = './js/business/';
+let entry = entryPrefixPath + "index.js";
+if (businessConfig.pageList.length) {
+    entry = {};
+    businessConfig.pageList.forEach((page)=>{
+        entry[entryPrefixName + page] = path.resolve(__dirname, entryPrefixPath + page);
+    });
+}
 
 let log = new Log('info');
 
+log.info("1111212121212121BusinessConfig");
+log.info(entry);
 
 module.exports = {
-    entry: {
-        main: './src/js/index.js',
-        test: './src/js/test.js'
-    },
+    entry: entry,
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
@@ -30,7 +34,7 @@ module.exports = {
             cacheGroups: {
                 commons: {
                     test : /\.js$/,
-                    name: 'commons',
+                    name: './js/commons',
                     chunks: 'all'
                 },
                 vendors: {
