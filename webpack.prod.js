@@ -8,7 +8,12 @@ const path = require('path');
 module.exports = merge(common, {
     mode: 'production',
     plugins:[
-        new ExtractTextPlugin('[name].[hash].css'),
+        new ExtractTextPlugin({
+            filename:  (getPath) => {
+                return getPath('css/[name].css').replace('css/js', 'css');
+              },
+              allChunks: true
+        }),
         new PurifyCSSPlugin({
             paths: glob.sync(path.join(__dirname, 'src/template/*.html')),
             minimize: true

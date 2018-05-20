@@ -5,8 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const businessConfig = require('./src/js/business.config');
 
-const entryPrefixPath = './src/js/';
-const entryPrefixName = './js/business/';
+const entryPrefixPath = 'src/js/';
+const entryPrefixName = 'js/business/';
 let entry = entryPrefixPath + "index.js";
 if (businessConfig.pageList.length) {
     entry = {};
