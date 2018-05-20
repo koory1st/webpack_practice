@@ -7,7 +7,7 @@ const businessConfig = require('./src/js/business.config');
 
 const entryPrefixPath = 'src/js/';
 const entryPrefixName = 'js/business/';
-let entry = entryPrefixPath + "index.js";
+let entry = entryPrefixPath + 'index.js';
 if (businessConfig.pageList.length) {
     entry = {};
     businessConfig.pageList.forEach((page)=>{
@@ -17,7 +17,7 @@ if (businessConfig.pageList.length) {
 
 let log = new Log('info');
 
-log.info("1111212121212121BusinessConfig");
+log.info('1111212121212121BusinessConfig');
 log.info(entry);
 
 module.exports = {
