@@ -3,5 +3,5 @@ import $ from 'jquery';
 
 console.log(1111);
 $('body').css('background-color', 'black');
-var a;
+// var a;
 
