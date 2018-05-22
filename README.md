@@ -27,3 +27,7 @@
 * ./node_modules/.bin/eslint --init
 * npm install eslint-loader --save-dev
 * npm install --save-dev url-loader
+
+## 合并命令
+* npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env webpack webpack-cli style-loader css-loader html-webpack-plugin clean-webpack-plugin webpack-merge webpack-dev-server postcss-loader extract-text-webpack-plugin@next purifycss-webpack purify-css eslint eslint-loader url-loader log --save-dev
+* ./node_modules/.bin/eslint --init

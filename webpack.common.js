@@ -7,7 +7,7 @@ const businessConfig = require('./config/business.config');
 
 const entryPrefixPath = 'src/js/';
 const entryPrefixName = 'js/business/';
-let entry = entryPrefixPath + 'index.js';
+let entry = './src/js/index.js';
 if (businessConfig.entryList.length) {
     entry = {};
     businessConfig.entryList.forEach((page) => {
