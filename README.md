@@ -26,3 +26,4 @@
 * npm install eslint --save-dev
 * ./node_modules/.bin/eslint --init
 * npm install eslint-loader --save-dev
+* npm install --save-dev url-loader
