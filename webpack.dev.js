@@ -28,6 +28,20 @@ module.exports = merge(common, {
                     },
                     'postcss-loader'
                 ]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader',
+                    'less-loader'
+                ]
             }
         ]
     }

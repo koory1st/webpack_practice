@@ -34,6 +34,21 @@ module.exports = merge(common, {
                     'postcss-loader'
                     ]
                 })
+            },
+            {
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader',
+                    'less-loader'
+                    ]
+                })
             }
         ]
     }
