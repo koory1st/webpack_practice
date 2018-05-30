@@ -75,10 +75,19 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192
+                            limit: 8192,
+                            name: 'asset/[hash].[ext]'
                         }
                     }
                 ]
-            }]
+            },
+            {
+                test: /\.html?$/,
+                use: {
+                    loader: 'html-url-loader',
+                    query: { deep: true }
+                },
+            }
+        ]
     }
 };

@@ -30,6 +30,7 @@
     "eslint-loader": "^2.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "glob": "^7.1.2",
+    "html-url-loader": "^1.0.5",
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.3.1",
     "less": "^3.0.4",
