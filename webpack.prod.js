@@ -5,25 +5,25 @@ const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const path = require('path');
 
+const extractCSS = new ExtractTextPlugin('css/[name].[hash].css');
+const extractLESS = new ExtractTextPlugin('css/[name].[hash].less.css');
+
 module.exports = merge(common, {
     mode: 'production',
     plugins:[
-        new ExtractTextPlugin({
-            filename:  (getPath) => {
-                return getPath('css/[name].css').replace('css/js', 'css');
-            },
-            allChunks: true
-        }),
+        extractLESS,
+        extractCSS,
         new PurifyCSSPlugin({
-            paths: glob.sync(path.join(__dirname, 'src/template/*.html')),
-            minimize: true
+            paths: glob.sync(path.join(__dirname, 'src/html/index.html')),
+            minimize: true,
+            styleExtensions: ['.css', '.less']
         })
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({
+                use: extractCSS.extract({
                     fallback: 'style-loader',
                     use: [{
                         loader: 'css-loader',
@@ -37,7 +37,7 @@ module.exports = merge(common, {
             },
             {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
+                use: extractLESS.extract({
                     fallback: 'style-loader',
                     use: [{
                         loader: 'css-loader',
